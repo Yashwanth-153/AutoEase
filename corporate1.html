@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logo1.png" type="image/png">
+    <title>CabRental Services</title>
+    <link rel="stylesheet" href="corporate1.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #eeeff1;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .AutoEase_logo {
+        font-size: 29px;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 10px;
+    }
+
+    .AutoEase_logo::first-word {
+        color: red;
+    }
+
+    .AutoEase_logo::last-word {
+        color: #333;
+    }
+
+    .AutoEase_logo:hover {
+        color: #007bff;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .navbar {
+        display: flex;
+        gap: 20px;
+        padding-top: 20px;
+        list-style: none;
+    }
+
+    .navbar li a {
+        text-decoration: none;
+        color: #333;
+        padding: 10px 15px;
+        transition: 0.3s ease;
+    }
+
+    .navbar li a:hover {
+        color: #007bff;
+    }
+
+    .header-btn .sign-up {
+        padding: 10px 20px;
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .header-btn .sign-up:hover {
+        background-color: red;
+        border-color: red;
+    }
+
+    /* Hide menu icon initially */
+    #menu-icon {
+        display: none;
+    }
+
+    /* Responsive styles for mobile sidebar */
+    @media (max-width: 600px) {
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            flex-direction: column;
+            align-items: start;
+            justify-content: flex-start;
+            padding: 20px;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+
+        .navbar.active {
+            left: 0;
+        }
+
+        .navbar li {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .navbar li a {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px 15px;
+        }
+
+        #menu-icon {
+            display: block;
+            font-size: 28px;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+        }
+
+        .close-btn {
+            font-size: 28px;
+            cursor: pointer;
+            margin-left: auto;
+            margin-bottom: 20px;
+        }
+    }
+
+    @media only screen and (max-width:600px) {
+        #myimg {
+            display: none;
+        }
+    }
+
+    /* General styles */
+    .review {
+        padding: 50px 0;
+    }
+
+    .heading {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+  /* Main Swiper Slide Styling */
+.swiper-slide {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+background-color: #fff;
+border-radius: 10px;
+transition: transform 0.3s ease-in-out;
+}
+
+.swiper-slide img {
+width: 100px;
+height: 100px;
+border-radius: 50%;
+margin-bottom: 10px;
+}
+
+.swiper-slide h3 {
+font-size: 1.5rem;
+margin: 10px 0;
+}
+
+.swiper-slide p {
+font-size: 1rem;
+color: #777;
+margin-bottom: 15px;
+}
+
+.stars i {
+color: #fbc02d;
+}
+
+/* Hover effect */
+.swiper-slide:hover {
+transform: scale(.95);
+}
+/* Responsive Styles */
+/* Medium Devices (Up to 1200px) */
+@media screen and (max-width: 1200px) {
+  .swiper-slide {
+      max-width: 100%;
+      padding: 16px;
+  }
+}
+
+/* Small Devices (Up to 768px) */
+@media screen and (max-width: 768px) {
+  .heading {
+      font-size: 2rem;
+      text-align: center;
+  }
+
+  .swiper-slide {
+      max-width: 100%;
+      padding: 12px;
+  }
+
+  .swiper-slide img {
+      width: 80px;
+      height: 80px;
+  }
+
+  .swiper-slide h3 {
+      font-size: 1.2rem;
+      margin: 8px 0;
+  }
+
+  .swiper-slide p {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+  }
+}
+
+/* Extra Small Devices (Up to 576px) */
+@media screen and (max-width: 576px) {
+  .heading {
+      font-size: 1.5rem;
+      text-align: center;
+  }
+
+  .swiper-slide {
+      max-width: 100%;
+      padding: 10px;
+  }
+
+  .swiper-slide img {
+      width: 70px;
+      height: 70px;
+  }
+
+  .swiper-slide h3 {
+      font-size: 1rem;
+      margin: 8px 0;
+  }
+
+  .swiper-slide p {
+      font-size: 0.85rem;
+  }
+}
+
+/* Ultra Small Devices (Up to 400px) */
+@media screen and (max-width: 400px) {
+  .heading {
+      font-size: 1.2rem;
+      text-align: center;
+  }
+
+  .swiper-slide {
+      max-width: 100%;
+      padding: 8px;
+  }
+
+  .swiper-slide img {
+      width: 60px;
+      height: 60px;
+  }
+
+  .swiper-slide h3 {
+      font-size: 0.9rem;
+      margin: 5px 0;
+  }
+
+  .swiper-slide p {
+      font-size: 0.75rem;
+  }
+}
+
+/* Additional styling for swiper pagination */
+.swiper-pagination {
+  position: relative;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Additional responsive pagination size adjustments */
+@media screen and (max-width: 768px) {
+  .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+  }
+}
+
+
+      /* Navigation button styles */
+
+      .swiper-button-prev,
+      .swiper-button-next {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 10;
+          color: var(--primary-color);
+          padding: 30px;
+          width: 25px;
+          height: 25px;
+          background-color: rgba(0, 0, 0, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background 0.3s ease, opacity 0.3s ease;
+      }
+
+      .swiper-button-prev {
+          left: 20px;
+      }
+
+      .swiper-button-next {
+          right: 20px;
+      }
+
+      .swiper-button-prev:hover,
+      .swiper-button-next:hover {
+          background-color: rgba(0, 0, 0, 0.3);
+          opacity: 1;
+
+      }
+      /* General Styles */
+      .container_1 {
+        padding: 50px 0;
+    }
+    
+
+    .Question h3 {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 26px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 700;
+    }
+
+    .accordion__wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+
+    .accordion__title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .accordion {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+
+    .accordion__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        cursor: pointer;
+        background-color: #f1f1f1;
+        border-radius: 8px;
+    }
+
+    .accordion__question {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .accordion__icon {
+        font-size: 1.5rem;
+        color: #333;
+    }
+
+    .accordion__content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        padding: 0 15px;
+    }
+
+    .accordion__content p {
+        padding: 15px 0;
+        font-size: 1rem;
+        color: #666;
+    }
+
+    /* Expand accordion on active */
+    .accordion.active .accordion__content {
+        max-height: 200px;
+        transition: max-height 0.4s ease-in;
+    }
+
+    .accordion.active .accordion__icon i {
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+        .accordion__title {
+            font-size: 1.6rem;
+        }
+
+        .accordion__question {
+            font-size: 1.1rem;
+        }
+
+        .accordion__icon {
+            font-size: 1.3rem;
+        }
+
+        .accordion__content p {
+            font-size: 0.95rem;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .accordion__wrapper {
+            padding: 10px;
+        }
+
+        .accordion__title {
+            font-size: 1.4rem;
+        }
+
+        .accordion__question {
+            font-size: 1rem;
+        }
+
+        .accordion__icon {
+            font-size: 1.2rem;
+        }
+
+        .accordion__content p {
+            font-size: 0.9rem;
+        }
+    }
+
+    /* General Styles */
+    #contact {
+        padding:  50px 0;
+        margin-top: -9rem;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 13rem;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .contact-left{
+        margin-top: 130px;
+    }
+
+    .contact-left,
+    .contact-right {
+        flex: 1;
+        min-width: 300px;
+       
+    }
+
+    .line {
+        border: none;
+        height: 1px;
+        background-color: #333; 
+        margin: 20px 0;
+        width: 100%; 
+    }
+
+    .contact-left .line {
+        width: 70%;
+        margin: 20px auto; /* Center the line */
+    }
+
+    .contact-left p{
+        margin-bottom: 60px;
+    }
+
+    .sub-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .social-icon a {
+        margin-right: 15px;
+        font-size: 2rem;
+        color: #333;
+    }
+
+    .social-icon a:hover {
+        color: #007bff;
+    }
+    @media screen and (max-width: 768px) {
+      .row {
+          flex-direction: column;
+          gap: 1rem;
+          align-items: center;
+      }
+
+      .contact-left,
+      .contact-right {
+              margin: 20px 0;
+              margin-left: -7rem;
+      }
+
+      .sub-title {
+          font-size: 1.8rem;
+          text-align: center;
+      }
+
+      .social-icon {
+          text-align: center;
+          margin-bottom: 20px;
+      }
+  }
+
+  @media screen and (max-width: 576px) {
+      .sub-title {
+          font-size: 1.6rem;
+      }
+
+      form input,
+      form textarea {
+          font-size: 0.9rem;
+          padding: 8px;
+      }
+
+      form button {
+          font-size: 0.9rem;
+      }
+  }.home .container {
+    position: relative; /* To position the text overlay relative to the container */
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+/* Text Overlay Styling */
+.text-overlay {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    width: 40%; /* Adjust width of the text block */
+    transform: translateY(-20%);
+    color: #333; /* Adjust text color to fit the background */
+}
+
+.text-overlay h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #e63946; /* Optional color for the header */
+}
+
+.text-overlay p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsive for Smaller Screens */
+@media (max-width: 768px) {
+    .text-overlay {
+        width: 90%; /* Wider text block for smaller screens */
+        left: 5%;
+        top: 30%; /* Adjust the positioning for mobile */
+    }
+
+    .text-overlay h2 {
+        font-size: 28px;
+    }
+
+    .text-overlay p {
+        font-size: 16px;
+    }
+    
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo"><img src="img/logo.png" alt=""></a>
+      <a href="index.html" class="AutoEase_logo"><span style="color: red;">Auto</span><span style="color: #333;">Ease</span></a>      <div class="bx bx-menu" id="menu-icon"></div>
+      <ul class="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="corporate1.html">Corporate</a></li>
+          <li><a href="serv.html">Services</a></li>
+          <li><a href="bookings.html">My Bookings</a></li>
+      </ul>
+      <div class="header-btn">
+          <a href="index.html" class="sign-up">Book</a>
+      </div>
+      <!-- Removed theme-switch div -->
+  </header>
+  <!-- 20 circle elements -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <center>
+    <h1>
+        <span style="color: red;">Corporate</span> Rentals – 
+        <span style="color: red;">Auto</span> Ease
+      </h1>
+      
+    <p class="subtitle">Reliable Corporate Car Rentals for Your Business Needs</p>
+    <button class="cta" onclick="document.getElementById('rental-form').scrollIntoView({ behavior: 'smooth' })">Book Now</button>
+  </center>
+  
+  <section class="intro">
+    <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 18px;">
+        Auto Ease offers flexible, reliable, and premium corporate car rental services designed to meet all your business transportation needs. Whether it’s daily commutes, executive travel, or group transfers, we ensure a seamless experience marked by comfort, punctuality, and professionalism.
+      </p>
+      
+
+  </section>
+  
+  <section class="vehicles">
+    <h2>Rental Options</h2>
+    <div class="vehicle-card">Xylo – ₹1000/day – Comfortable and spacious. <button class="book-btn" onclick="selectVehicle('xylo')">Book Now</button></div>
+    <div class="vehicle-card">Dzire – ₹800/day – Ideal for executives. <button class="book-btn" onclick="selectVehicle('dzire')">Book Now</button></div>
+    <div class="vehicle-card">Sumo – ₹1000/day – Great for team travel. <button class="book-btn" onclick="selectVehicle('sumo')">Book Now</button></div>
+    <div class="vehicle-card">Tempo Traveller – ₹3000/day – Group transport. <button class="book-btn" onclick="selectVehicle('tempo')">Book Now</button></div>
+    <div class="vehicle-card">20-Seating Bus – ₹6000/day – Large corporate events. <button class="book-btn" onclick="selectVehicle('bus')">Book Now</button></div>
+  </section>
+  
+  <section class="form-section" id="rental-form">
+    <h2>Rental Cost Calculator</h2>
+    <form id="costForm">
+      <input type="text" placeholder="Name" required>
+      <input type="text" placeholder="Organization" required>
+      <select id="duration">
+        <option value="1">1 day</option>
+        <option value="3">3 days</option>
+        <option value="7">7 days</option>
+        <option value="15">15 days</option>
+        <option value="30">30 days</option>
+      </select>
+      <select id="vehicle">
+        <option value="xylo">Xylo – ₹1000/day</option>
+        <option value="dzire">Dzire – ₹800/day</option>
+        <option value="sumo">Sumo – ₹1000/day</option>
+        <option value="tempo">Tempo Traveller – ₹3000/day</option>
+        <option value="bus">20-Seating Bus – ₹6000/day</option>
+      </select>
+      <button type="button" class="cta" onclick="bookRental()">Book</button>
+    </form>
+    <div class="result" id="costResult">Total Cost: ₹0</div>
+  </section>
+  
+  <section class="why-us">
+    <h2>Why Choose Auto Ease?</h2>
+    <ul>
+      <li>24/7 Customer Support</li>
+      <li>Flexible Rental Plans</li>
+      <li>Well-Maintained Vehicles</li>
+      <li>Customizable Travel Packages</li>
+      <li>Timely Delivery & Pickup</li>
+    </ul>
+  </section>
+  
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial">"Auto Ease made our corporate event logistics smooth and stress-free! Highly recommended."<strong>– Priya R., HR Manager</strong></div>
+    <div class="testimonial">"Reliable service and well-maintained vehicles. We’ll definitely book again."<strong>– Rajesh K., Admin Lead</strong></div>
+  </section>
+  
+  <section class="faq">
+    <h2>FAQ</h2>
+    <p><strong>What is the minimum rental duration?</strong> – 1 day</p>
+    <p><strong>Are drivers included?</strong> – Available on request.</p>
+    <p><strong>Do you offer long-term discounts?</strong> – Yes, for 15+ day rentals.</p>
+  </section>
+  
+  <section class="trust">
+    <h2>Trusted By</h2>
+    <p>✔ Trusted by Leading Corporates<br>✔ Certified & Insured Fleet</p>
+  </section>
+  
+  <section class="map">
+    <h2>Our Location</h2>
+    <iframe src="https://maps.google.com/maps?q=Hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+  </section>
+  
+  <section class="promos">
+    <h2>Promotions & Discounts</h2>
+    <ul>
+      <li>10% off for first-time corporate clients</li>
+      <li>Special rates for long-term rentals</li>
+      <li>Bulk booking discounts available</li>
+    </ul>
+  </section>
+  
+  <footer>
+    <p>Email: autoease@gmail.com | Phone: 9876543210</p>
+    <p>123 Corporate Avenue, Hyderabad, India</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <hr class="line">
+    <div class="social-icon">
+      <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+      <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </footer>
+  
+  <script>
+    const prices = {
+      xylo: 1000,
+      dzire: 800,
+      sumo: 1000,
+      tempo: 3000,
+      bus: 6000
+    };
+  
+    const durationEl = document.getElementById("duration");
+    const vehicleEl = document.getElementById("vehicle");
+    const resultEl = document.getElementById("costResult");
+  
+    durationEl.addEventListener("change", calculateCost);
+    vehicleEl.addEventListener("change", calculateCost);
+  
+    function calculateCost() {
+      const days = parseInt(durationEl.value);
+      const vehicle = vehicleEl.value;
+      const baseCost = prices[vehicle] * days;
+      const totalCost = baseCost;
+      resultEl.textContent = `Total Cost: ₹${totalCost}`;
+    }
+  
+    function selectVehicle(vehicleType) {
+      vehicleEl.value = vehicleType;
+      calculateCost();
+      document.getElementById('rental-form').scrollIntoView({ behavior: 'smooth' });
+    }
+  
+    function bookRental() {
+      alert('Your rental has been booked successfully!');
+    }
+  </script>
+  
+  </body>
+  
+  
+
+  </body>
+</html>

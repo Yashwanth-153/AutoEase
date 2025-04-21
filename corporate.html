@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo1.png" type="image/png">
+    <title>Cabshare</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        /* Media queries for responsiveness */
+        @media (max-width: 575.98px) {
+            .form {
+                width: 90%;
+                margin: 0 auto;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin-left: 30%;
+            }
+        }
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .form {
+                width: 70%;
+                margin: 0 auto;
+            }
+            h1 {
+                font-size: 1.8rem;
+                margin-left: 25%;
+            }
+        }
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .form {
+                width: 60%;
+                margin: 0 auto;
+            }
+            h1 {
+                font-size: 2rem;
+                margin-left: 20%;
+            }
+        }
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .form {
+                width: 50%;
+                margin: 0 auto;
+            }
+            h1 {
+                font-size: 2.2rem;
+                margin-left: 15%;
+            }
+        }
+        @media (min-width: 1200px) {
+            .form {
+                width: 40%;
+                margin: 0 auto;
+            }
+            h1 {
+                font-size: 2.5rem;
+                margin-left: 10%;
+            }
+        }
+        .video-container {
+            position: relative;
+        }
+        .circle {
+            height: 18px;
+            width: 18px;
+            border-radius: 24px;
+            background-color: #ff0000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Ensure the trail is above everything */
+            pointer-events: none; /* Prevent the circles from interfering with mouse events */
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 110px 100px;
+        }
+        @media (max-width: 1000px) {
+            section {
+                padding: 100px 50px;
+            }
+        }
+        @media (max-width: 600px) {
+            section {
+                padding: 123px 30px;
+            }
+        }
+        .form-style-10 .inner-wrap {
+            padding: 30px;
+            background: #F8F8F8;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .form-style-10 h1 {
+            background: #80057c;
+            padding: 20px 30px 15px 30px;
+            margin: -30px -30px 30px -30px;
+            border-radius: 10px 10px 0 0;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(214, 84, 175, 0.12);
+            font: normal 30px 'Bitter', serif;
+        }
+        .form-style-10 h1 > span {
+            display: block;
+            margin-top: 2px;
+            font: 13px Arial, Helvetica, sans-serif;
+        }
+        .form-style-10 label {
+            display: block;
+            font: 13px Arial, Helvetica, sans-serif;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        .form-style-10 input[type="text"],
+        .form-style-10 input[type="date"],
+        .form-style-10 input[type="datetime"],
+        .form-style-10 input[type="email"],
+        .form-style-10 input[type="number"],
+        .form-style-10 input[type="search"],
+        .form-style-10 input[type="time"],
+        .form-style-10 input[type="url"],
+        .form-style-10 input[type="password"],
+        .form-style-10 textarea,
+        .form-style-10 select {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 8px;
+            border-radius: 6px;
+            border: 2px solid #fff;
+            box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+        }
+        .form-style-10 .section {
+            font: normal 20px 'Bitter', serif;
+            color: #000000;
+            margin-bottom: 5px;
+        }
+        .form-style-10 .section span {
+            background: #bc2bbc;
+            padding: 5px 10px;
+            position: absolute;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            font-size: 14px;
+            margin-left: -45px;
+            color: #fff;
+            margin-top: -3px;
+        }
+        .form-style-10 input[type="button"],
+        .form-style-10 input[type="submit"] {
+            background: #91279b;
+            padding: 8px 20px;
+            border-radius: 5px;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+            font: normal 30px 'Bitter', serif;
+            border: 1px solid #760f41;
+            font-size: 15px;
+        }
+        .form-style-10 input[type="button"]:hover,
+        .form-style-10 input[type="submit"]:hover {
+            background: #7b033f;
+            box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+        }
+        .form-style-10 .privacy-policy {
+            float: right;
+            width: 250px;
+            font: 12px Arial, Helvetica, sans-serif;
+            color: #4D4D4D;
+            margin-top: 10px;
+            text-align: right;
+        }
+
+
+        @media (max-width: 575.98px) {
+          .form {
+              width: 100%;
+              padding: 10px;
+          }
+
+          .form-style-10 {
+              margin: 30px auto;
+              padding: 20px;
+          }
+
+          .form-style-10 h1 {
+              font-size: 24px;
+          }
+
+          .form-style-10 .section {
+              font-size: 18px;
+          }
+
+          .footer a {
+              display: block;
+              margin-bottom: 5px;
+          }
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #eeeff1;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 20px;
+            padding-top: 20px;
+            list-style: none;
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 15px;
+            transition: 0.3s ease;
+        }
+
+        .navbar li a:hover {
+            color: #007bff;
+        }
+
+        .header-btn .sign-up {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        .header-btn .sign-up:hover {
+            background-color: red;
+            border-color: red;
+        }
+
+        /* Hide menu icon initially */
+        #menu-icon {
+            display: none;
+        }
+
+        /* Responsive styles for mobile sidebar */
+        @media (max-width: 600px) {
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: -250px;
+                width: 250px;
+                height: 100%;
+                flex-direction: column;
+                align-items: start;
+                justify-content: flex-start;
+                padding: 20px;
+                transition: 0.3s;
+                z-index: 1000;
+            }
+
+            .navbar.active {
+                left: 0;
+            }
+
+            .navbar li {
+                width: 100%;
+                margin: 20px 0;
+            }
+
+            .navbar li a {
+                display: block;
+                width: 100%;
+                text-align: left;
+                padding: 10px 15px;
+            }
+
+            #menu-icon {
+                display: block;
+                font-size: 28px;
+                cursor: pointer;
+                position: absolute;
+                right: 20px;
+            }
+
+            .close-btn {
+                font-size: 28px;
+                cursor: pointer;
+                margin-left: auto;
+                margin-bottom: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body class="col-md-12">
+    <!-- 20 circle elements -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate Rentals – Auto Ease</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #007BFF, #00BFFF);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    h1 {
+      font-size: 42px;
+      margin: 0;
+    }
+    p.subtitle {
+      font-size: 20px;
+      margin: 10px 0 20px;
+    }
+    .cta {
+      background-color: #ff4081;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .cta:hover {
+      background-color: #e91e63;
+      transform: scale(1.05);
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #007BFF;
+    }
+    .vehicle-card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .book-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      float: right;
+      transition: 0.3s;
+    }
+    .book-btn:hover {
+      background-color: #218838;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    input, select {
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .result {
+      font-weight: bold;
+      font-size: 18px;
+      color: #28a745;
+      margin-top: 10px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    footer {
+      background: #222;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+    footer a {
+      color: #00BFFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    .social-icons img {
+      width: 24px;
+      margin: 0 5px;
+      filter: brightness(0) invert(1);
+    }
+    .map iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+    }
+    .testimonials {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    .testimonial {
+      margin-bottom: 20px;
+      font-style: italic;
+      color: #555;
+    }
+    .testimonial strong {
+      display: block;
+      margin-top: 10px;
+      color: #333;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="video-container">
+    <script src="main.js"></script>
+    <!-- Header -->
+    <header style="display: flex !important;">
+        <a href="index.html" class="logo"><img src="img/logo.png" alt=""></a>
+        <a href="index.html" class="CabRental_logo"><img src="img/cabz.png.png" alt=""></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="corporate.html">Corporate</a></li>
+            <li><a href="serv.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contactus.html">Contact</a></li>
+        </ul>
+<header>
+  <h1>Corporate Rentals – Auto Ease</h1>
+  <p class="subtitle">Reliable Corporate Car Rentals for Your Business Needs</p>
+  <button class="cta" onclick="document.getElementById('rental-form').scrollIntoView({ behavior: 'smooth' })">Book Now</button>
+</header>
+
+<section class="intro">
+  <p>Auto Ease offers flexible and reliable corporate car rentals including Xylo, Dzire, Sumo, Tempo Traveller, and 20-seater buses for all your business transportation needs.</p>
+</section>
+
+<section class="vehicles">
+  <h2>Rental Options</h2>
+  <div class="vehicle-card">Xylo – ₹1000/day – Comfortable and spacious. <button class="book-btn" onclick="selectVehicle('xylo')">Book Now</button></div>
+  <div class="vehicle-card">Dzire – ₹800/day – Ideal for executives. <button class="book-btn" onclick="selectVehicle('dzire')">Book Now</button></div>
+  <div class="vehicle-card">Sumo – ₹1000/day – Great for team travel. <button class="book-btn" onclick="selectVehicle('sumo')">Book Now</button></div>
+  <div class="vehicle-card">Tempo Traveller – ₹3000/day – Group transport. <button class="book-btn" onclick="selectVehicle('tempo')">Book Now</button></div>
+  <div class="vehicle-card">20-Seating Bus – ₹6000/day – Large corporate events. <button class="book-btn" onclick="selectVehicle('bus')">Book Now</button></div>
+</section>
+
+<section class="form-section" id="rental-form">
+  <h2>Rental Cost Calculator</h2>
+  <form id="costForm">
+    <input type="text" placeholder="Name" required>
+    <input type="text" placeholder="Organization" required>
+    <select id="duration">
+      <option value="1">1 day</option>
+      <option value="3">3 days</option>
+      <option value="7">7 days</option>
+      <option value="15">15 days</option>
+      <option value="30">30 days</option>
+    </select>
+    <select id="vehicle">
+      <option value="xylo">Xylo – ₹1000/day</option>
+      <option value="dzire">Dzire – ₹800/day</option>
+      <option value="sumo">Sumo – ₹1000/day</option>
+      <option value="tempo">Tempo Traveller – ₹3000/day</option>
+      <option value="bus">20-Seating Bus – ₹6000/day</option>
+    </select>
+    <button type="button" class="cta" onclick="bookRental()">Book</button>
+  </form>
+  <div class="result" id="costResult">Total Cost: ₹0</div>
+</section>
+
+<section class="why-us">
+  <h2>Why Choose Auto Ease?</h2>
+  <ul>
+    <li>24/7 Customer Support</li>
+    <li>Flexible Rental Plans</li>
+    <li>Well-Maintained Vehicles</li>
+    <li>Customizable Travel Packages</li>
+    <li>Timely Delivery & Pickup</li>
+  </ul>
+</section>
+
+<section class="testimonials">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonial">"Auto Ease made our corporate event logistics smooth and stress-free! Highly recommended."<strong>– Priya R., HR Manager</strong></div>
+  <div class="testimonial">"Reliable service and well-maintained vehicles. We’ll definitely book again."<strong>– Rajesh K., Admin Lead</strong></div>
+</section>
+
+<section class="faq">
+  <h2>FAQ</h2>
+  <p><strong>What is the minimum rental duration?</strong> – 1 day</p>
+  <p><strong>Are drivers included?</strong> – Available on request.</p>
+  <p><strong>Do you offer long-term discounts?</strong> – Yes, for 15+ day rentals.</p>
+</section>
+
+<section class="trust">
+  <h2>Trusted By</h2>
+  <p>✔ Trusted by Leading Corporates<br>✔ Certified & Insured Fleet</p>
+</section>
+
+<section class="map">
+  <h2>Our Location</h2>
+  <iframe src="https://maps.google.com/maps?q=Hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
+
+<section class="promos">
+  <h2>Promotions & Discounts</h2>
+  <ul>
+    <li>10% off for first-time corporate clients</li>
+    <li>Special rates for long-term rentals</li>
+    <li>Bulk booking discounts available</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Email: autoease@gmail.com | Phone: 9876543210</p>
+  <p>123 Corporate Avenue, Hyderabad, India</p>
+  <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  <div class="social-icons">
+    <img src="https://via.placeholder.com/24" alt="Facebook">
+    <img src="https://via.placeholder.com/24" alt="Twitter">
+    <img src="https://via.placeholder.com/24" alt="LinkedIn">
+  </div>
+</footer>
+
+<script>
+  const prices = {
+    xylo: 1000,
+    dzire: 800,
+    sumo: 1000,
+    tempo: 3000,
+    bus: 6000
+  };
+
+  const durationEl = document.getElementById("duration");
+  const vehicleEl = document.getElementById("vehicle");
+  const resultEl = document.getElementById("costResult");
+
+  durationEl.addEventListener("change", calculateCost);
+  vehicleEl.addEventListener("change", calculateCost);
+
+  function calculateCost() {
+    const days = parseInt(durationEl.value);
+    const vehicle = vehicleEl.value;
+    const baseCost = prices[vehicle] * days;
+    const totalCost = baseCost;
+    resultEl.textContent = `Total Cost: ₹${totalCost}`;
+  }
+
+  function selectVehicle(vehicleType) {
+    vehicleEl.value = vehicleType;
+    calculateCost();
+    document.getElementById('rental-form').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function bookRental() {
+    alert('Your rental has been booked successfully!');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logo1.png" type="image/png">
+    <title>CabRental Services</title>
+    <link rel="stylesheet" href="serv.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #eeeff1;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .AutoEase_logo {
+        font-size: 29px;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 10px;
+    }
+
+    .AutoEase_logo::first-word {
+        color: red;
+    }
+
+    .AutoEase_logo::last-word {
+        color: #333;
+    }
+
+    .AutoEase_logo:hover {
+        color: #007bff;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .navbar {
+        display: flex;
+        gap: 20px;
+        padding-top: 20px;
+        list-style: none;
+    }
+
+    .navbar li a {
+        text-decoration: none;
+        color: #333;
+        padding: 10px 15px;
+        transition: 0.3s ease;
+    }
+
+    .navbar li a:hover {
+        color: #007bff;
+    }
+
+    .header-btn .sign-up {
+        padding: 10px 20px;
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .header-btn .sign-up:hover {
+        background-color: red;
+        border-color: red;
+    }
+
+    /* Hide menu icon initially */
+    #menu-icon {
+        display: none;
+    }
+
+    /* Responsive styles for mobile sidebar */
+    @media (max-width: 600px) {
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            flex-direction: column;
+            align-items: start;
+            justify-content: flex-start;
+            padding: 20px;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+
+        .navbar.active {
+            left: 0;
+        }
+
+        .navbar li {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .navbar li a {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px 15px;
+        }
+
+        #menu-icon {
+            display: block;
+            font-size: 28px;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+        }
+
+        .close-btn {
+            font-size: 28px;
+            cursor: pointer;
+            margin-left: auto;
+            margin-bottom: 20px;
+        }
+    }
+
+    @media only screen and (max-width:600px) {
+        #myimg {
+            display: none;
+        }
+    }
+
+    /* General styles */
+    .review {
+        padding: 50px 0;
+    }
+
+    .heading {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+  /* Main Swiper Slide Styling */
+.swiper-slide {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+background-color: #fff;
+border-radius: 10px;
+transition: transform 0.3s ease-in-out;
+}
+
+.swiper-slide img {
+width: 100px;
+height: 100px;
+border-radius: 50%;
+margin-bottom: 10px;
+}
+
+.swiper-slide h3 {
+font-size: 1.5rem;
+margin: 10px 0;
+}
+
+.swiper-slide p {
+font-size: 1rem;
+color: #777;
+margin-bottom: 15px;
+}
+
+.stars i {
+color: #fbc02d;
+}
+
+/* Hover effect */
+.swiper-slide:hover {
+transform: scale(.95);
+}
+/* Responsive Styles */
+/* Medium Devices (Up to 1200px) */
+@media screen and (max-width: 1200px) {
+  .swiper-slide {
+      max-width: 100%;
+      padding: 16px;
+  }
+}
+
+/* Small Devices (Up to 768px) */
+@media screen and (max-width: 768px) {
+  .heading {
+      font-size: 2rem;
+      text-align: center;
+  }
+
+  .swiper-slide {
+      max-width: 100%;
+      padding: 12px;
+  }
+
+  .swiper-slide img {
+      width: 80px;
+      height: 80px;
+  }
+
+  .swiper-slide h3 {
+      font-size: 1.2rem;
+      margin: 8px 0;
+  }
+
+  .swiper-slide p {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+  }
+}
+
+/* Extra Small Devices (Up to 576px) */
+@media screen and (max-width: 576px) {
+  .heading {
+      font-size: 1.5rem;
+      text-align: center;
+  }
+
+  .swiper-slide {
+      max-width: 100%;
+      padding: 10px;
+  }
+
+  .swiper-slide img {
+      width: 70px;
+      height: 70px;
+  }
+
+  .swiper-slide h3 {
+      font-size: 1rem;
+      margin: 8px 0;
+  }
+
+  .swiper-slide p {
+      font-size: 0.85rem;
+  }
+}
+
+/* Ultra Small Devices (Up to 400px) */
+@media screen and (max-width: 400px) {
+  .heading {
+      font-size: 1.2rem;
+      text-align: center;
+  }
+
+  .swiper-slide {
+      max-width: 100%;
+      padding: 8px;
+  }
+
+  .swiper-slide img {
+      width: 60px;
+      height: 60px;
+  }
+
+  .swiper-slide h3 {
+      font-size: 0.9rem;
+      margin: 5px 0;
+  }
+
+  .swiper-slide p {
+      font-size: 0.75rem;
+  }
+}
+
+/* Additional styling for swiper pagination */
+.swiper-pagination {
+  position: relative;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Additional responsive pagination size adjustments */
+@media screen and (max-width: 768px) {
+  .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+  }
+}
+
+
+      /* Navigation button styles */
+
+      .swiper-button-prev,
+      .swiper-button-next {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 10;
+          color: var(--primary-color);
+          padding: 30px;
+          width: 25px;
+          height: 25px;
+          background-color: rgba(0, 0, 0, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background 0.3s ease, opacity 0.3s ease;
+      }
+
+      .swiper-button-prev {
+          left: 20px;
+      }
+
+      .swiper-button-next {
+          right: 20px;
+      }
+
+      .swiper-button-prev:hover,
+      .swiper-button-next:hover {
+          background-color: rgba(0, 0, 0, 0.3);
+          opacity: 1;
+
+      }
+      /* General Styles */
+      .container_1 {
+        padding: 50px 0;
+    }
+    
+
+    .Question h3 {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 26px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 700;
+    }
+
+    .accordion__wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+
+    .accordion__title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .accordion {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+
+    .accordion__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        cursor: pointer;
+        background-color: #f1f1f1;
+        border-radius: 8px;
+    }
+
+    .accordion__question {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .accordion__icon {
+        font-size: 1.5rem;
+        color: #333;
+    }
+
+    .accordion__content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        padding: 0 15px;
+    }
+
+    .accordion__content p {
+        padding: 15px 0;
+        font-size: 1rem;
+        color: #666;
+    }
+
+    /* Expand accordion on active */
+    .accordion.active .accordion__content {
+        max-height: 200px;
+        transition: max-height 0.4s ease-in;
+    }
+
+    .accordion.active .accordion__icon i {
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+        .accordion__title {
+            font-size: 1.6rem;
+        }
+
+        .accordion__question {
+            font-size: 1.1rem;
+        }
+
+        .accordion__icon {
+            font-size: 1.3rem;
+        }
+
+        .accordion__content p {
+            font-size: 0.95rem;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .accordion__wrapper {
+            padding: 10px;
+        }
+
+        .accordion__title {
+            font-size: 1.4rem;
+        }
+
+        .accordion__question {
+            font-size: 1rem;
+        }
+
+        .accordion__icon {
+            font-size: 1.2rem;
+        }
+
+        .accordion__content p {
+            font-size: 0.9rem;
+        }
+    }
+
+    /* General Styles */
+    #contact {
+        padding:  50px 0;
+        margin-top: -9rem;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 13rem;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .contact-left{
+        margin-top: 130px;
+    }
+
+    .contact-left,
+    .contact-right {
+        flex: 1;
+        min-width: 300px;
+       
+    }
+
+    .line {
+        border: none;
+        height: 1px;
+        background-color: #333; 
+        margin: 20px 0;
+        width: 100%; 
+    }
+
+    .contact-left .line {
+        width: 70%;
+        margin: 20px auto; /* Center the line */
+    }
+
+    .contact-left p{
+        margin-bottom: 60px;
+    }
+
+    .sub-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .social-icon a {
+        margin-right: 15px;
+        font-size: 2rem;
+        color: #333;
+    }
+
+    .social-icon a:hover {
+        color: #007bff;
+    }
+    @media screen and (max-width: 768px) {
+      .row {
+          flex-direction: column;
+          gap: 1rem;
+          align-items: center;
+      }
+
+      .contact-left,
+      .contact-right {
+              margin: 20px 0;
+              margin-left: -7rem;
+      }
+
+      .sub-title {
+          font-size: 1.8rem;
+          text-align: center;
+      }
+
+      .social-icon {
+          text-align: center;
+          margin-bottom: 20px;
+      }
+  }
+
+  @media screen and (max-width: 576px) {
+      .sub-title {
+          font-size: 1.6rem;
+      }
+
+      form input,
+      form textarea {
+          font-size: 0.9rem;
+          padding: 8px;
+      }
+
+      form button {
+          font-size: 0.9rem;
+      }
+  }.home .container {
+    position: relative; /* To position the text overlay relative to the container */
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+/* Text Overlay Styling */
+.text-overlay {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    width: 40%; /* Adjust width of the text block */
+    transform: translateY(-20%);
+    color: #333; /* Adjust text color to fit the background */
+}
+
+.text-overlay h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #e63946; /* Optional color for the header */
+}
+
+.text-overlay p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsive for Smaller Screens */
+@media (max-width: 768px) {
+    .text-overlay {
+        width: 90%; /* Wider text block for smaller screens */
+        left: 5%;
+        top: 30%; /* Adjust the positioning for mobile */
+    }
+
+    .text-overlay h2 {
+        font-size: 28px;
+    }
+
+    .text-overlay p {
+        font-size: 16px;
+    }
+    
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo"><img src="img/logo.png" alt=""></a>
+      <a href="index.html" class="AutoEase_logo"><span style="color: red;">Auto</span><span style="color: #333;">Ease</span></a>      <div class="bx bx-menu" id="menu-icon"></div>
+      <ul class="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="corporate1.html">Corporate</a></li>
+          <li><a href="serv.html">Services</a></li>
+          <li><a href="bookings.html">My Bookings</a></li>
+          
+      </ul>
+      <div class="header-btn">
+          <a href="index.html" class="sign-up">Book</a>
+      </div>
+      <!-- Removed theme-switch div -->
+  </header>
+  <!-- 20 circle elements -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+    <main>
+      <div id="city-transfers" class="citytransfer">
+        <div class="head1">
+          <h2>City Transfers</h2>
+        </div>
+        <p class="citypara">
+          Our city transfer services ensure convenient and reliable transportation to and from airports, hotels, and various locations within the city. We guarantee punctuality and comfort throughout your journey.
+        </p>
+        <ul class="key-features">
+          <li>Modern fleet of vehicles including sedans, SUVs, and luxury cars</li>
+          <li>Experienced and professional drivers</li>
+          <li>Flexible scheduling to suit your travel plans</li>
+          <li>Competitive pricing and transparent billing</li>
+        </ul>
+        <div class="card-footer">
+          <a href="#" class="cta-button">Book Now</a>
+        </div>
+      </div>
+      
+      <div class="video">
+        <video autoplay muted loop id="background-video">
+          <source src="service.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      
+      <div id="hourly-rentals" class="rentally">
+        <div class="head2">
+          <h2>Hourly Rentals</h2>
+        </div>
+        <p class="hour">
+          Whether you need transportation for a few hours or an entire day, our hourly rental service provides flexibility and peace of mind. Perfect for business meetings, sightseeing tours, or personal errands.
+        </p>
+        <ul class="key-features1">
+          <li>Choose from a variety of vehicles tailored to your needs</li>
+          <li>Customizable routes and stops according to your itinerary</li>
+          <li>Experienced drivers familiar with local routes and attractions</li>
+          <li>Affordable rates with no hidden fees</li>
+        </ul>
+        <div class="card-footer">
+          <a href="#" class="cta-button">Get a Quote</a>
+        </div>
+      </div>
+      
+      <div id="special-occasions" class="specially">
+        <div class="occassion">
+          <h2>Special Occasions</h2>
+        </div>
+        <p class="key-features2">
+          Celebrate your special events in style with our tailored transportation solutions. Whether it's a wedding, anniversary, corporate event, or night out, we ensure a memorable and luxurious experience.
+        </p>
+        <ul class="key-features2">
+          <li>Premium selection of vehicles including limousines and executive vans</li>
+          <li>Personalized service to meet your specific event requirements</li>
+          <li>Professional chauffeurs dressed in attire appropriate for the occasion</li>
+          <li>On-time arrivals and impeccable service from start to finish</li>
+        </ul>
+        <div class="card-footer">
+          <a href="#" class="cta-button">Contact Us</a>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2024 CabRental. All rights reserved.</p>
+      <style>
+        /* Styling the footer */
+        footer {
+            background-color: #ee6d6d;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            display: flex;  /* Flexbox */
+            justify-content: center;  /* Center horizontally */
+            align-items: center; 
+            position: center;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+            height: 30px;
+            line-height: 30px;
+            transform: translateY(100%);  /* Initially hidden */
+            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);  /* Smooth animation */
+        }
+
+
+        body {
+            margin: 0;
+            padding-bottom: 80px;  /* Space for the footer */
+        }
+    </style>
+    <script src="script.js"></script>
+      <script>
+       let lastScrollTop = 0;
+        const footer = document.querySelector("footer");
+
+        window.addEventListener("scroll", function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down - footer should appear smoothly
+                footer.style.transform = "translateY(0)";
+            } else {
+                // Scrolling up - hide the footer smoothly
+                footer.style.transform = "translateY(100%)";
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+    </script>
+    </footer>
+    <div id="topbtn" class="topbtn">
+      <a class="gotopbtn" href="#"><i class="fa-solid fa-angles-up"></i></a>
+  </div>
+  
+
+  </body>
+</html>
